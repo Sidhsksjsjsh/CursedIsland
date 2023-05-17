@@ -46,7 +46,7 @@ function TP(name)
 for i,v in pairs(game.Workspace:GetDescendants()) do
         if v:IsA("BasePart") then
             if v.Name:lower() == name then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.CFrame)
              else
                 Alert("Sword Teleport","waiting for the cutlass to appear","7258714296",5)
             end
@@ -60,10 +60,7 @@ local Disaster = {}
 local Deleted = {}
 local Collider = {}
 
-Main.toggle("Auto Cheat round",false,function(val)
-   _G.Round = val
-   while wait() do
-    if _G.Round == false then break end
+Main.button("Cheat round",function()
       RemovePart("center")
       RemovePart("water")
       RemovePart("volcano")
@@ -84,7 +81,6 @@ Main.toggle("Auto Cheat round",false,function(val)
       RemovePart("abductor") -- UFO hole 2
       RemovePart("center")
       CollidePart("prisonsides")
-     end
 end)
 
 Main.button("Teleport to the sword",function()
